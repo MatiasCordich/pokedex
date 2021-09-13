@@ -1,7 +1,8 @@
-
 const picturePokemon = document.getElementById('picture')
 const stats = document.getElementById('stats')
 const buttonPokemon = document.getElementById('button_blue')
+const yellowBox1 = document.querySelector('.yellow_box-1')
+const yellowBox2 = document.querySelector('.yellow_box-2')
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -18,7 +19,9 @@ async function getPokemon(id) {
 
         const pokemon = {
             img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`,
-            nombre: data.name
+            nombre: data.name,
+            ataque: data.stats[1].base_stat,
+            defensa: data.stats[2].base_stat
         }
 
         pintarPokemon(pokemon)
@@ -39,6 +42,14 @@ function pintarPokemon (pokemon) {
     pokemonName.classList.add('poke_name')
     pokemonName.innerText = pokemon.nombre
     stats.appendChild(pokemonName)
+
+    const atkStats = document.createElement('p')
+    atkStats.innerText = `ATK: ${pokemon.ataque}`
+    yellowBox1.appendChild(atkStats)
+
+    const defStats = document.createElement('p')
+    defStats.innerText = `DEF: ${pokemon.defensa}`
+    yellowBox2.appendChild(defStats)
 
 }
 

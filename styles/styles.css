@@ -548,14 +548,22 @@ div .right {
 }
 
 .yellow_box-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 41.5rem;
 	left: 2.5rem;
+    font-size: 1.5rem;
     
 }
 
 .yellow_box-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 41.5rem;
 	left: 18.5rem;
+    font-size: 1.5rem;
 }
 
 
